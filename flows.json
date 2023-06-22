@@ -1,0 +1,756 @@
+[
+    {
+        "id": "0707022867e38f84",
+        "type": "tab",
+        "label": "API test",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e7ed37988b76b2e9",
+        "type": "tab",
+        "label": "Redirect",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3db985629b2f4d47",
+        "type": "tab",
+        "label": "VBX tunnel",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c3747ca66790e484",
+        "type": "tab",
+        "label": "KPN Destination",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1aeb0cb00cdb76df",
+        "type": "tab",
+        "label": "MQTT Broker AEDES",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ce1e509b327b8b3b",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "ac1aac2130102aa2",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "intelligentbuildings-iot.regelpartners.nl",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "220e9cc4f889d992",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "141.136.122.195",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "54c1e70d.ab3e18",
+        "type": "template",
+        "z": "0707022867e38f84",
+        "name": "page",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<html>\n    <head></head>\n    <body>\n        <h1>Dit is de testpagina voor IOT van Regel Partners!</h1>\n    </body>\n</html>",
+        "x": 310,
+        "y": 120,
+        "wires": [
+            [
+                "266c286f.d993d8"
+            ]
+        ]
+    },
+    {
+        "id": "266c286f.d993d8",
+        "type": "http response",
+        "z": "0707022867e38f84",
+        "name": "",
+        "x": 450,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "50ae942738236b37",
+        "type": "node-red-contrib-http-custom-port",
+        "z": "0707022867e38f84",
+        "name": "",
+        "url": "/test",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "port": "1992",
+        "x": 120,
+        "y": 120,
+        "wires": [
+            [
+                "54c1e70d.ab3e18",
+                "31dd99c48965cfdc"
+            ]
+        ]
+    },
+    {
+        "id": "31dd99c48965cfdc",
+        "type": "debug",
+        "z": "0707022867e38f84",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 200,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "ed2bab4c985965a9",
+        "type": "http in",
+        "z": "0707022867e38f84",
+        "name": "",
+        "url": "/thing",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 200,
+        "wires": [
+            [
+                "41d4b8a11a21ba37",
+                "601983399adb0d56"
+            ]
+        ]
+    },
+    {
+        "id": "77c62e65d8706f82",
+        "type": "http response",
+        "z": "0707022867e38f84",
+        "name": "",
+        "x": 450,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "41d4b8a11a21ba37",
+        "type": "function",
+        "z": "0707022867e38f84",
+        "name": "function 3",
+        "func": "msg.payload = 200\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 280,
+        "wires": [
+            [
+                "77c62e65d8706f82"
+            ]
+        ]
+    },
+    {
+        "id": "601983399adb0d56",
+        "type": "debug",
+        "z": "0707022867e38f84",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 200,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "a7b801f17ec24c45",
+        "type": "http in",
+        "z": "0707022867e38f84",
+        "name": "",
+        "url": "/post",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 280,
+        "wires": [
+            [
+                "41d4b8a11a21ba37",
+                "a367258724ebddab"
+            ]
+        ]
+    },
+    {
+        "id": "a367258724ebddab",
+        "type": "debug",
+        "z": "0707022867e38f84",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 200,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "0d353ec269f08a05",
+        "type": "node-red-contrib-http-custom-port",
+        "z": "0707022867e38f84",
+        "name": "",
+        "url": "/get",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "port": "1992",
+        "x": 120,
+        "y": 80,
+        "wires": [
+            [
+                "54c1e70d.ab3e18"
+            ]
+        ]
+    },
+    {
+        "id": "50c8e5e37d04c426",
+        "type": "http response",
+        "z": "e7ed37988b76b2e9",
+        "name": "",
+        "x": 530,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "dda411d84eea670d",
+        "type": "node-red-contrib-http-custom-port",
+        "z": "e7ed37988b76b2e9",
+        "name": "",
+        "url": "/serverruimte",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "port": "1995",
+        "x": 150,
+        "y": 60,
+        "wires": [
+            [
+                "aff931c0f06869e8",
+                "8354cce7c0cdfb97"
+            ]
+        ]
+    },
+    {
+        "id": "aff931c0f06869e8",
+        "type": "function",
+        "z": "e7ed37988b76b2e9",
+        "name": "function 1",
+        "func": "msg.statusCode = 303;\nmsg.headers = {\n    Location: \"https://maker.allthingstalk.com/sp/5e7f910483925c00018215bb/maker:4YkfUaQiKzgA3u9Q95YNo0YcOZgWpxTF5Q2UCgQB\"\n}\ndelete msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 60,
+        "wires": [
+            [
+                "50c8e5e37d04c426",
+                "c9e154de19f0f5bf"
+            ]
+        ]
+    },
+    {
+        "id": "c9e154de19f0f5bf",
+        "type": "debug",
+        "z": "e7ed37988b76b2e9",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "8354cce7c0cdfb97",
+        "type": "debug",
+        "z": "e7ed37988b76b2e9",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 340,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "c0e2aa3632d8b674",
+        "type": "debug",
+        "z": "3db985629b2f4d47",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "f9462f42afee0aa9",
+        "type": "http request",
+        "z": "3db985629b2f4d47",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.1.1.11:1880/kaizen_yana_buildings?ClientId=870",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 310,
+        "y": 40,
+        "wires": [
+            [
+                "68126f605e3c4af0"
+            ]
+        ]
+    },
+    {
+        "id": "90f20ecda7fdb782",
+        "type": "inject",
+        "z": "3db985629b2f4d47",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 40,
+        "wires": [
+            [
+                "f9462f42afee0aa9"
+            ]
+        ]
+    },
+    {
+        "id": "68126f605e3c4af0",
+        "type": "json",
+        "z": "3db985629b2f4d47",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 490,
+        "y": 40,
+        "wires": [
+            [
+                "c0e2aa3632d8b674"
+            ]
+        ]
+    },
+    {
+        "id": "ee2f1ad6f07ae787",
+        "type": "node-red-contrib-http-custom-port",
+        "z": "c3747ca66790e484",
+        "name": "",
+        "url": "/post_KPN",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "port": "1993",
+        "x": 160,
+        "y": 120,
+        "wires": [
+            [
+                "0a1ff1f8c7ac3dc4",
+                "559a266656806f9b"
+            ]
+        ]
+    },
+    {
+        "id": "0a1ff1f8c7ac3dc4",
+        "type": "function",
+        "z": "c3747ca66790e484",
+        "name": "function 2",
+        "func": "msg.payload = \"Eduard\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 120,
+        "wires": [
+            [
+                "6d989015a94e8284"
+            ]
+        ]
+    },
+    {
+        "id": "6d989015a94e8284",
+        "type": "http response",
+        "z": "c3747ca66790e484",
+        "name": "",
+        "x": 490,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "559a266656806f9b",
+        "type": "debug",
+        "z": "c3747ca66790e484",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 180,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "c9b04826c9c3ad37",
+        "type": "comment",
+        "z": "c3747ca66790e484",
+        "name": "Nginx",
+        "info": "sudo nano /etc/nginx/sites-enabled/node-red\n\n    # default server settings\n    listen 80;\n    listen 443 default ssl;\n    server_name intelligentbuildings-iot.regelpartners.nl;\n\n    # ssl settings\n    ssl on;\n    ssl_certificate /etc/ssl/private/wildcard-regelpartners-nl.crt;\n    ssl_certificate_key /etc/ssl/private/wildcard-regelpartners-nl.key;\n\n    location /post_KPN {\n            #return 307 http://localhost:1880$request_uri;\n            #proxy_pass http://localhost:1880/post2;\n            proxy_pass http://localhost:1993/post_KPN;\n            proxy_method POST;\n            proxy_http_version 1.1;\n    }\n",
+        "x": 250,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "d98ddfa3c4eded32",
+        "type": "aedes broker",
+        "z": "1aeb0cb00cdb76df",
+        "name": "",
+        "mqtt_port": "1883",
+        "mqtt_ws_bind": "port",
+        "mqtt_ws_port": "",
+        "mqtt_ws_path": "",
+        "cert": "",
+        "key": "",
+        "certname": "",
+        "keyname": "",
+        "persistence_bind": "memory",
+        "dburl": "",
+        "usetls": false,
+        "x": 270,
+        "y": 120,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "15d7f0b46d0e6ace",
+        "type": "mqtt out",
+        "z": "1aeb0cb00cdb76df",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "ce1e509b327b8b3b",
+        "x": 350,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "b4e2b24b095ac687",
+        "type": "mqtt in",
+        "z": "1aeb0cb00cdb76df",
+        "name": "",
+        "topic": "tijd",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "ce1e509b327b8b3b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 280,
+        "wires": [
+            [
+                "3a51e421bbf46188"
+            ]
+        ]
+    },
+    {
+        "id": "904ad70d0d3ca7fa",
+        "type": "inject",
+        "z": "1aeb0cb00cdb76df",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "tijd",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 180,
+        "wires": [
+            [
+                "15d7f0b46d0e6ace"
+            ]
+        ]
+    },
+    {
+        "id": "3a51e421bbf46188",
+        "type": "debug",
+        "z": "1aeb0cb00cdb76df",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "116c975fb3875ad3",
+        "type": "mqtt out",
+        "z": "1aeb0cb00cdb76df",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "ac1aac2130102aa2",
+        "x": 450,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "b518f2a3b8d39485",
+        "type": "inject",
+        "z": "1aeb0cb00cdb76df",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "tijd",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 480,
+        "wires": [
+            [
+                "116c975fb3875ad3"
+            ]
+        ]
+    },
+    {
+        "id": "9871c6a54a8910f0",
+        "type": "mqtt out",
+        "z": "1aeb0cb00cdb76df",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "220e9cc4f889d992",
+        "x": 430,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "ecb602ab9a886efe",
+        "type": "inject",
+        "z": "1aeb0cb00cdb76df",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "tijd",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 600,
+        "wires": [
+            [
+                "9871c6a54a8910f0"
+            ]
+        ]
+    },
+    {
+        "id": "efdebc69dc689847",
+        "type": "comment",
+        "z": "1aeb0cb00cdb76df",
+        "name": "",
+        "info": "Maak een CRT file\n\nhttps://linuxhint.com/create-crt-file-linux/",
+        "x": 680,
+        "y": 160,
+        "wires": []
+    }
+]
